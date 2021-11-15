@@ -1,10 +1,26 @@
 public class Token {
-    public TokenType type;
-    public String value;
+    private TokenType type;
+    private String value;
 
     Token() {
         type = TokenType.UNKNOWN;
         value = new String();
+    }
+
+    public TokenType getType() {
+        return type;
+    }
+    
+    public void setType(TokenType type) {
+        this.type = type;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 
     @Override

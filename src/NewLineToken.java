@@ -1,14 +1,22 @@
 public class NewLineToken extends Token {
-    public int indention;
+    private int indention;
     
     NewLineToken() {
-        value="\n";
-        type=TokenType.NEWLINE;
+        setValue("\n");
+        setType(TokenType.NEWLINE);
         indention=0;
+    }
+
+    public int getIndention() {
+        return indention;
+    }
+
+    public void incrementIndention() {
+        indention++;
     }
 
     @Override
     public String toString() {
-        return "{"+type+", \'"+value.replace("\n", "\\n")+"\', "+indention+"}";
+        return "{"+getType()+", \'"+getValue().replace("\n", "\\n")+"\', "+indention+"}";
     }
 }
