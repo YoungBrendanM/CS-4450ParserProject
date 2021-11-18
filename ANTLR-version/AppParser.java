@@ -16,7 +16,7 @@ public class AppParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		COMMENT=1, NEWLINE=2;
+		ARITH_OPERATORS=1, ASSIGN_OPERATORS=2, CONDITION=3, COMMENT=4, NEWLINE=5;
 	public static final int
 		RULE_r = 0, RULE_s = 1;
 	private static String[] makeRuleNames() {
@@ -33,7 +33,8 @@ public class AppParser extends Parser {
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "COMMENT", "NEWLINE"
+			null, "ARITH_OPERATORS", "ASSIGN_OPERATORS", "CONDITION", "COMMENT", 
+			"NEWLINE"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -188,10 +189,10 @@ public class AppParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\4\17\4\2\t\2\4\3"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\7\17\4\2\t\2\4\3"+
 		"\t\3\3\2\3\2\5\2\t\n\2\3\3\3\3\3\3\3\3\3\3\2\2\4\2\4\2\2\2\r\2\b\3\2\2"+
 		"\2\4\n\3\2\2\2\6\t\5\4\3\2\7\t\7\2\2\3\b\6\3\2\2\2\b\7\3\2\2\2\t\3\3\2"+
-		"\2\2\n\13\7\3\2\2\13\f\7\4\2\2\f\r\5\2\2\2\r\5\3\2\2\2\3\b";
+		"\2\2\n\13\7\6\2\2\13\f\7\7\2\2\f\r\5\2\2\2\r\5\3\2\2\2\3\b";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

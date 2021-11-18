@@ -4,5 +4,8 @@ r : s   | EOF   ;
 s : COMMENT NEWLINE r;
 
 // Lexer Rules
-COMMENT :    '#' ~('\n')*;
+ARITH_OPERATORS : '+' | '-' | '*' | '/' | '%' | '^' ;
+ASSIGN_OPERATORS : '='  | '+='  | '-=' | '*='   | '/='  | '^=' | '%='   ;
+CONDITION: '<' | '<=' | '>' | '>='  | '==' | '!='    ;
+COMMENT :    '#' ~('\n')*   ;
 NEWLINE : ('\r'? '\n' | '\r')+   ;
