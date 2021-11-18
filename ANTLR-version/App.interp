@@ -15,8 +15,8 @@ COMMENT
 NEWLINE
 
 rule names:
-r
 s
+comment
 
 
 atn:

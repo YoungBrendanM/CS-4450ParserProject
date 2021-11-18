@@ -1,7 +1,7 @@
 // Define grammar
 grammar App;
-r : s   | EOF   ;
-s : COMMENT NEWLINE r;
+s : comment   | EOF   ;
+comment : COMMENT NEWLINE s;
 
 // Lexer Rules
 ARITH_OPERATORS : '+' | '-' | '*' | '/' | '%' | '^' ;

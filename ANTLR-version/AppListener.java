@@ -7,16 +7,6 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface AppListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link AppParser#r}.
-	 * @param ctx the parse tree
-	 */
-	void enterR(AppParser.RContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link AppParser#r}.
-	 * @param ctx the parse tree
-	 */
-	void exitR(AppParser.RContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link AppParser#s}.
 	 * @param ctx the parse tree
 	 */
@@ -26,4 +16,14 @@ public interface AppListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitS(AppParser.SContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link AppParser#comment}.
+	 * @param ctx the parse tree
+	 */
+	void enterComment(AppParser.CommentContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link AppParser#comment}.
+	 * @param ctx the parse tree
+	 */
+	void exitComment(AppParser.CommentContext ctx);
 }

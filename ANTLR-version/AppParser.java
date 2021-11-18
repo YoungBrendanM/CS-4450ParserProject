@@ -18,10 +18,10 @@ public class AppParser extends Parser {
 	public static final int
 		ARITH_OPERATORS=1, ASSIGN_OPERATORS=2, CONDITION=3, COMMENT=4, NEWLINE=5;
 	public static final int
-		RULE_r = 0, RULE_s = 1;
+		RULE_s = 0, RULE_comment = 1;
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"r", "s"
+			"s", "comment"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -88,28 +88,28 @@ public class AppParser extends Parser {
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
-	public static class RContext extends ParserRuleContext {
-		public SContext s() {
-			return getRuleContext(SContext.class,0);
+	public static class SContext extends ParserRuleContext {
+		public CommentContext comment() {
+			return getRuleContext(CommentContext.class,0);
 		}
 		public TerminalNode EOF() { return getToken(AppParser.EOF, 0); }
-		public RContext(ParserRuleContext parent, int invokingState) {
+		public SContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_r; }
+		@Override public int getRuleIndex() { return RULE_s; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AppListener ) ((AppListener)listener).enterR(this);
+			if ( listener instanceof AppListener ) ((AppListener)listener).enterS(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AppListener ) ((AppListener)listener).exitR(this);
+			if ( listener instanceof AppListener ) ((AppListener)listener).exitS(this);
 		}
 	}
 
-	public final RContext r() throws RecognitionException {
-		RContext _localctx = new RContext(_ctx, getState());
-		enterRule(_localctx, 0, RULE_r);
+	public final SContext s() throws RecognitionException {
+		SContext _localctx = new SContext(_ctx, getState());
+		enterRule(_localctx, 0, RULE_s);
 		try {
 			setState(6);
 			_errHandler.sync(this);
@@ -118,7 +118,7 @@ public class AppParser extends Parser {
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(4);
-				s();
+				comment();
 				}
 				break;
 			case EOF:
@@ -143,29 +143,29 @@ public class AppParser extends Parser {
 		return _localctx;
 	}
 
-	public static class SContext extends ParserRuleContext {
+	public static class CommentContext extends ParserRuleContext {
 		public TerminalNode COMMENT() { return getToken(AppParser.COMMENT, 0); }
 		public TerminalNode NEWLINE() { return getToken(AppParser.NEWLINE, 0); }
-		public RContext r() {
-			return getRuleContext(RContext.class,0);
+		public SContext s() {
+			return getRuleContext(SContext.class,0);
 		}
-		public SContext(ParserRuleContext parent, int invokingState) {
+		public CommentContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_s; }
+		@Override public int getRuleIndex() { return RULE_comment; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof AppListener ) ((AppListener)listener).enterS(this);
+			if ( listener instanceof AppListener ) ((AppListener)listener).enterComment(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof AppListener ) ((AppListener)listener).exitS(this);
+			if ( listener instanceof AppListener ) ((AppListener)listener).exitComment(this);
 		}
 	}
 
-	public final SContext s() throws RecognitionException {
-		SContext _localctx = new SContext(_ctx, getState());
-		enterRule(_localctx, 2, RULE_s);
+	public final CommentContext comment() throws RecognitionException {
+		CommentContext _localctx = new CommentContext(_ctx, getState());
+		enterRule(_localctx, 2, RULE_comment);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
@@ -174,7 +174,7 @@ public class AppParser extends Parser {
 			setState(9);
 			match(NEWLINE);
 			setState(10);
-			r();
+			s();
 			}
 		}
 		catch (RecognitionException re) {

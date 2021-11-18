@@ -15,18 +15,6 @@ public class AppBaseListener implements AppListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterR(AppParser.RContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitR(AppParser.RContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterS(AppParser.SContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -34,6 +22,18 @@ public class AppBaseListener implements AppListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitS(AppParser.SContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterComment(AppParser.CommentContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitComment(AppParser.CommentContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
