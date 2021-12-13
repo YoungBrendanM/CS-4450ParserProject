@@ -2,3 +2,7 @@ Hello*.interp
 Hello*.tokens
 Hello*.class
 Hello*.java
+App*.interp
+App*.tokens
+App*.class
+App*.java
