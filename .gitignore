@@ -1,1 +1,4 @@
-*.interp
+Hello*.interp
+Hello*.tokens
+Hello*.class
+Hello*.java
