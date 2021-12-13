@@ -6,7 +6,7 @@ comment : COMMENT s;
 definition : ID ASSIGN_OPERATORS equation s ;
 conditional_statement: equation CONDITION equation;
 
-value : ID | NUMBER | '"' ~('"')* '"' ;
+value : ID | NUMBER | '"' ~('"')* '"' | "True" | "False";
 equation : value | value ARITH_OPERATORS equation ;
 
 // Lexer Rules
