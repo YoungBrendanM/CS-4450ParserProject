@@ -2,11 +2,11 @@
 grammar App;
 s : comment | definition | NEWLINE s | EOF  ;
 
-comment : COMMENT s;
+comment : COMMENT NEWLINE s;
 definition : ID ASSIGN_OPERATORS equation s ;
 conditional_statement: equation CONDITION equation;
 
-value : ID | NUMBER | '"' ~('"')* '"' | "True" | "False";
+value : ID | NUMBER | '"' ~('"')* '"' | 'True' | 'False';
 equation : value | value ARITH_OPERATORS equation ;
 
 // Lexer Rules
