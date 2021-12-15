@@ -9,7 +9,12 @@ conditional_statement: equation CONDITION equation;
 value : ID | NUMBER | '"' ~('"')* '"' | 'True' | 'False';
 equation : value | value ARITH_OPERATORS equation ;
 
+while_loop: WHILE ('(')? conditional_statement (')')? ':' s END;
+
 // Lexer Rules
+WHILE: 'while';
+END: 'END';
+
 CONDITION: '<' | '<=' | '>' | '>='  | '==' | '!='    ;
 COMMENT :    '#' ~('\n')*   ;
 ASSIGN_OPERATORS : '=' | '+=' | '-=' | '*=' | '/=' | '^=' | '%='    ;
