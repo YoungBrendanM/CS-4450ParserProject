@@ -1,7 +1,8 @@
 // Define grammar
 grammar App;
 s : comment | definition | if_loop | NEWLINE s | EOF;
-if_loop : IF ('(')? conditional_statement (')')? ':' s ELIF? ('(')? conditional_statement (')')? ':' s ELSE? ':' s;
+if_loop : IF ('(')? conditional_statement (')')? ':' s END (ELIF ('(')? conditional_statement (')')? ':' s END)? (ELSE ':' s END)?;
+
 
 comment : COMMENT NEWLINE s;
 definition : ID ASSIGN_OPERATORS equation s;
@@ -11,6 +12,7 @@ value : ID | NUMBER | '"' ~('"')* '"' | 'True' | 'False';
 equation : value | value ARITH_OPERATORS equation;
 
 // Lexer Rules
+END: 'END';
 IF : 'if';
 ELIF: 'elif';
 ELSE: 'else';
