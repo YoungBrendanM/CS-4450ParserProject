@@ -12,7 +12,6 @@ squirtle_attack = 35
 bulbasaur_attack = 25
 
 turn = 1
-
 # Turn-based attack loop, default starts with charmender (turn = 1)
 # To change default to Squirtle change set 'turn' to 0
 while charmender_HP > 0 and squirtle_HP > 0:
