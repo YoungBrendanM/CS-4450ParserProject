@@ -1,6 +1,6 @@
 // Define grammar
 grammar App;
-s : comment | definition | NEWLINE s | EOF  ;
+s : comment | definition | NEWLINE s | FOR |EOF  ;
 
 comment : COMMENT NEWLINE s;
 definition : ID ASSIGN_OPERATORS equation s ;
@@ -10,9 +10,17 @@ value : ID | NUMBER | '"' ~('"')* '"' | 'True' | 'False';
 equation : value | value ARITH_OPERATORS equation ;
 
 while_loop: WHILE ('(')? conditional_statement (')')? ':' s END;
+if_loop : IF ('(')? conditional_statement (')')? ':' s ELIF? ('(')? conditional_statement (')')? ':' s ELSE? ':' s;
+for_loop: FOR () IN value ':' s END;
 
 // Lexer Rules
+IF : 'if';
+ELIF: 'elif';
+ELSE: 'else';
+
 WHILE: 'while';
+FOR:'for';
+IN:'in';
 END: 'END';
 
 CONDITION: '<' | '<=' | '>' | '>='  | '==' | '!='    ;
