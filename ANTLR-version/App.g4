@@ -3,9 +3,9 @@ grammar App;
 s : comment (s)? | if_loop (s)? | definition (s)? | NEWLINE (s)? | while_loop (s)? | function (s)? | EOF  ;
 
 while_loop: WHILE ('(')? conditional_statement (')')? ':' s END;
-if_loop : IF '('? conditional_statement (CONJOIN_CONDITION conditional_statement)* ')'? ':' s END NEWLINE elif_loop* else_part?;
-elif_loop : ELIF '('? conditional_statement ')'? ':' s END NEWLINE;
-else_part : ELSE ':' s END;
+if_loop : IF '('? conditional_statement (CONJOIN_CONDITION conditional_statement)* ')'? ':' s? 'break'? NEWLINE? END NEWLINE? elif_loop* else_part?;
+elif_loop : ELIF '('? conditional_statement ')'? ':' s 'break'? END NEWLINE?;
+else_part : ELSE ':' s 'break'? NEWLINE END;
 function : ID '(' (SPEC_CHAR | equation | function)* ARITH_OPERATORS* (SPEC_CHAR | equation | function)* ARITH_OPERATORS* (SPEC_CHAR | equation | function)* ARITH_OPERATORS* ')';
 
 comment : COMMENT;
