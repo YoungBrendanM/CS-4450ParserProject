@@ -10,7 +10,7 @@ value : ID | NUMBER | '"' ~('"')* '"' | 'True' | 'False';
 equation : value | value ARITH_OPERATORS equation ;
 
 while_loop: WHILE ('(')? conditional_statement (')')? ':' s END;
-if_loop : IF ('(')? conditional_statement (')')? ':' s ELIF? ('(')? conditional_statement (')')? ':' s ELSE? ':' s;
+if_loop : IF ('(')? conditional_statement (')')? ':' s END (ELIF ('(')? conditional_statement (')')? ':' s END)? (ELSE ':' s END)?;
 for_loop: FOR () IN value ':' s END;
 
 // Lexer Rules
