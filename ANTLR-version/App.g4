@@ -1,6 +1,6 @@
 // Define grammar
 grammar App;
-s : comment (s)? | if_loop (s)? | definition (s)? | NEWLINE (s)? | while_loop (s)? | function (s)? | EOF  ;
+s : comment (s)? | if_loop (s)? | definition (s)? | NEWLINE (s)? | while_loop (s)? | function (s)? | for_loop (s)? | EOF  ;
 
 while_loop: WHILE ('(')? conditional_statement (')')? ':' s END;
 if_loop : IF '('? conditional_statement (CONJOIN_CONDITION conditional_statement)* ')'? ':' s? 'break'? NEWLINE? END NEWLINE? elif_loop* else_part?;
@@ -15,12 +15,18 @@ conditional_statement: equation CONDITION equation (CONJOIN_CONDITION conditiona
 value : ID | NUMBER | STRING | BOOLEAN;
 equation : value | value ARITH_OPERATORS equation;
 
+while_loop: WHILE ('(')? conditional_statement (')')? ':' s END;
+for_loop: FOR () IN value ':' s END;
+
 // Lexer Rules
 END: 'END';
 IF : 'if';
 ELIF: 'elif';
 ELSE: 'else';
 WHILE: 'while';
+
+FOR:'for';
+IN:'in';
 
 BOOLEAN: 'True' | 'False';
 CONJOIN_CONDITION: 'and' | 'or';
