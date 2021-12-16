@@ -3,8 +3,10 @@ grammar App;
 s : comment (s)? | if_loop (s)? | definition (s)? | NEWLINE (s)? | while_loop (s)? | function (s)? | EOF  ;
 
 while_loop: WHILE ('(')? conditional_statement (')')? ':' s END;
-if_loop : IF ('(')? conditional_statement (')')? ':' s END (ELIF ('(')? conditional_statement (')')? ':' s END)? (ELSE ':' s END)?;
-function : ID ('(') (SPEC_CHAR | equation | function)* ARITH_OPERATORS* (SPEC_CHAR | equation | function)* ARITH_OPERATORS* (SPEC_CHAR | equation | function)* ARITH_OPERATORS* (')');
+if_loop : IF '('? conditional_statement (CONJOIN_CONDITION conditional_statement)* ')'? ':' s END NEWLINE elif_loop* else_part?;
+elif_loop : ELIF '('? conditional_statement ')'? ':' s END NEWLINE;
+else_part : ELSE ':' s END;
+function : ID '(' (SPEC_CHAR | equation | function)* ARITH_OPERATORS* (SPEC_CHAR | equation | function)* ARITH_OPERATORS* (SPEC_CHAR | equation | function)* ARITH_OPERATORS* ')';
 
 comment : COMMENT;
 definition : ID ASSIGN_OPERATORS equation;
