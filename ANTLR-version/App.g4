@@ -36,4 +36,4 @@ NUMBER : (MINUS)? ('0'..'9')+;
 NEWLINE : ('\r'? '\n')+ | '\r';
 WHITESPACE : [ \t\r\n]+ -> skip;
 
-SPEC_CHAR : '!' | '@' | '$' | '%' | '(' | ')' | ',';
+SPEC_CHAR : '!' | '@' | '$' | '%' | '(' | ')' | ',' | '\'';
