@@ -2,7 +2,7 @@
 grammar App;
 s : comment (s)? | if_loop (s)? | definition (s)? | NEWLINE (s)? | while_loop (s)? | function (s)? | for_loop (s)? | EOF  ;
 
-while_loop: WHILE ('(')? conditional_statement ('(')? ':' s END;
+while_loop: WHILE ('(')? conditional_statement (')')? ':' s END;
 if_loop : IF '('? conditional_statement (CONJOIN_CONDITION conditional_statement)* ')'? ':' s? 'break'? NEWLINE? END NEWLINE? elif_loop* else_part?;
 elif_loop : ELIF '('? conditional_statement ')'? ':' s 'break'? END NEWLINE?;
 else_part : ELSE ':' s 'break'? NEWLINE END;
@@ -15,7 +15,7 @@ conditional_statement: equation CONDITION equation (CONJOIN_CONDITION conditiona
 value : ID | NUMBER | STRING | BOOLEAN;
 equation : value | value ARITH_OPERATORS equation;
 
-for_loop: FOR value IN ('(')? function ('(')? ':' s END;
+for_loop: FOR value IN ('(')? function (')')? ':' s END;
 
 // Lexer Rules
 END: 'END';

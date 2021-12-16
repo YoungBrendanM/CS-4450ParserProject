@@ -20,6 +20,7 @@ while charmender_HP > 0 and squirtle_HP > 0:
         print("Charmender did "+str(charmender_attack)+" damage")
         print("Squirtle got hurt :'( HP is: "+str(squirtle_HP))
         turn = 0
+
     else:
         charmender_HP -= squirtle_attack
         print("Squirtle faught back and did "+str(squirtle_attack)+" damage")
@@ -29,6 +30,7 @@ while charmender_HP > 0 and squirtle_HP > 0:
 # Print winner pokemon
 if charmender_HP >= 1:
     print(name+"'s Charmender won!")
+    
 elif squirtle_HP >=1:
     print(name+"'s Squirtle won!")
 else:
