@@ -5,7 +5,7 @@ s : comment (s)? | if_loop (s)? | definition (s)? | NEWLINE (s)? | while_loop (s
 while_loop: WHILE ('(')? conditional_statement (')')? ':' s END;
 if_loop : IF ('(')? conditional_statement (')')? ':' s END (ELIF ('(')? conditional_statement (')')? ':' s END)? (ELSE ':' s END)?;
 
-comment : COMMENT NEWLINE;
+comment : COMMENT;
 definition : ID ASSIGN_OPERATORS equation;
 conditional_statement: equation CONDITION equation (CONJOIN_CONDITION conditional_statement)?;
 
