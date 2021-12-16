@@ -1,8 +1,8 @@
 // Define grammar
 grammar App;
-s : comment | definition | if_loop | NEWLINE s | EOF;
+s : comment | definition | if_loop |function | NEWLINE s | EOF;
 if_loop : IF ('(')? conditional_statement (')')? ':' s END (ELIF ('(')? conditional_statement (')')? ':' s END)? (ELSE ':' s END)?;
-
+function : ID ('(') (SPEC_CHAR | equation | function)* ARITH_OPERATORS* (SPEC_CHAR | equation | function)* ARITH_OPERATORS* (SPEC_CHAR | equation | function)* ARITH_OPERATORS* (')');
 
 comment : COMMENT NEWLINE s;
 definition : ID ASSIGN_OPERATORS equation s;
@@ -27,3 +27,5 @@ NUMBER : (MINUS)? ('0'..'9')+;
 
 NEWLINE : ('\r'? '\n')+ | '\r';
 WHITESPACE : [ \t\r\n]+ -> skip;
+
+SPEC_CHAR : '!' | '@' | '$' | '%' | '(' | ')' | ',';
