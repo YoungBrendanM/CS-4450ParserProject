@@ -39,11 +39,15 @@ Kevin Zeng
 File is selected after program start
 ### To run without terminal:
   1. Double click on the file parser-1.0.0-shaded.jar
+  2. Locate the file you'd like to parse using the GUI window and double click.
+  3. Parse tree should show up graphically.
     
 
 ### To run with terminal:
   1. Open terminal in same directory as parser-1.0.0-shaded.jar
   2. Run the command "java -jar .\parser-1.0.0-shaded.jar"
+  3. Locate the file you'd like to parse using the GUI window and double click.
+  4. Parse Tree should show up both graphically and in the terminal.
 
 ## Video
 
