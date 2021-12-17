@@ -1,6 +1,21 @@
 # CS-4450ParserProject
 ## Description
 
+Our parser project is intended to parse each character in the provided python file, using our own predefined grammar, and create a viewable parse tree that follows our rules and provides the right grouping.
+
+Our Grammar includes:  
+- if/elif/else blocks  
+- Variable Definitions  
+- while and for loops  
+- Arithmetic Operators  
+- Assignment Operators  
+- Conditional Statements  
+- Comments  
+
+We also have completed Bonus #2, whose build requirements will be listed as well
+
+The final deliverable will be viewable using a .jar file, and will automatically run the commands to generate and show the parse tree using ANTLR. 
+
 ## Team Members
 
 Walker Brownfield
