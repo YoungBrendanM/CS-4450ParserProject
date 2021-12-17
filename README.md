@@ -26,7 +26,7 @@ Kevin Zeng
  5. parser-1.0.0-shaded.jar should be created in the target folder.
 
 ### If no changes were made to the src\main\antlr4\App.g4:
- 1. Run mvn package from the repository's root directory
+ 1. Run "mvn package" from the repository's root directory
  2. parser-1.0.0-shaded.jar file should be created in the target folder.
 
     
