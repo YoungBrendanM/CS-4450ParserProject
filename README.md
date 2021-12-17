@@ -4,7 +4,7 @@
 Our parser project is intended to parse each character in the provided python file, using our own predefined grammar, and create a viewable parse tree that follows our rules and provides the right grouping.
 
 Our Grammar includes:  
-- elif/else blocks  
+- if/elif/else blocks  
 - Variable Definitions  
 - while and for loops  
 - Arithmetic Operators  
